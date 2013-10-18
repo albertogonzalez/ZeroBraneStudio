@@ -85,10 +85,10 @@ function exec(command, force_verbose)
     if cfg.debug then print("Executing the command: " .. command) end
     local ok = os.execute(command)
 
-    if ok ~= 0 then
-        return nil, "Error when running the command: " .. command
-    else
+    if ok ~= nil then
         return true, "Sucessfully executed the command: " .. command
+    else
+        return nil, "Error when running the command: " .. command
     end
 end
 
